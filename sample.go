@@ -7,5 +7,5 @@ import "fmt"
 
 // Return a formatted greeting to given user.
 func Greet(user string) string {
-	return fmt.Sprint("hello", user)
+	return fmt.Sprintf("hello %s", user)
 }
