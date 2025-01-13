@@ -3,13 +3,21 @@
 
 package sample
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestGreet(t *testing.T) {
-	want := "hello world"
-	got := Greet("world")
+	format := "hello %s"
+	names := []string{"world", "kurth4cker"}
 
-	if want != got {
-		t.Errorf("Greet(\"world\") = %q, want %q", got, want)
+	for _, name := range names {
+		want := fmt.Sprintf(format, name)
+		got := Greet(name)
+
+		if want != got {
+			t.Errorf("got = %q, want %q", got, want)
+		}
 	}
 }
