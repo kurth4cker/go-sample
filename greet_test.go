@@ -4,20 +4,32 @@
 package sample
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestGreet(t *testing.T) {
-	format := "hello %s"
-	names := []string{"world", "kurth4cker"}
+	t.Run("greet to 'world'", func(t *testing.T) {
+		want := "hello world"
+		got := Greet("world")
+		assertGotWant(t, got, want)
+	})
 
-	for _, name := range names {
-		want := fmt.Sprintf(format, name)
-		got := Greet(name)
+	t.Run("greet to anyone else", func(t *testing.T) {
+		want := "hello kurth4cker"
+		got := Greet("kurth4cker")
+		assertGotWant(t, got, want)
+	})
 
-		if want != got {
-			t.Errorf("got = %q, want %q", got, want)
-		}
+	t.Run("empty string is not special", func(t *testing.T) {
+		want := "hello "
+		got := Greet("")
+		assertGotWant(t, got, want)
+	})
+}
+
+func assertGotWant(t testing.TB, want, got string) {
+	t.Helper()
+	if got != want {
+		t.Errorf("got %q, want %q", want, got)
 	}
 }
