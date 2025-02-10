@@ -10,7 +10,7 @@ This is just a go11module. You can add it with `go get`:
     go get codeberg.org/kurth4cker/go-sample@latest
 
     # get latest development version at branch "v0"
-    go get codeberg.org/kurth4cker/go-sample@v0
+    go get codeberg.org/kurth4cker/go-sample@HEAD
 
 
 ## Copying
