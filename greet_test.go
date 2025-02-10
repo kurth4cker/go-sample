@@ -8,6 +8,13 @@ import (
 )
 
 func TestGreet(t *testing.T) {
+	assertGotWant := func(t testing.TB, got, want string) {
+		t.Helper()
+		if got != want {
+			t.Errorf("got %q, want %q", got, want)
+		}
+	}
+
 	t.Run("greet to 'world'", func(t *testing.T) {
 		want := "hello world"
 		got := Greet("world")
@@ -25,11 +32,4 @@ func TestGreet(t *testing.T) {
 		got := Greet("")
 		assertGotWant(t, got, want)
 	})
-}
-
-func assertGotWant(t testing.TB, want, got string) {
-	t.Helper()
-	if got != want {
-		t.Errorf("got %q, want %q", want, got)
-	}
 }
