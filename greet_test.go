@@ -3,33 +3,23 @@
 
 package sample
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestGreet(t *testing.T) {
-	assertGotWant := func(t testing.TB, got, want string) {
-		t.Helper()
-		if got != want {
-			t.Errorf("got %q, want %q", got, want)
-		}
+	testCases := []struct {
+		given string
+		want  string
+	}{
+		{given: "world", want: "hello world"},
+		{given: "kurth4cker", want: "hello kurth4cker"},
+		{given: "", want: "hello "},
 	}
 
-	t.Run("greet to 'world'", func(t *testing.T) {
-		want := "hello world"
-		got := Greet("world")
-		assertGotWant(t, got, want)
-	})
-
-	t.Run("greet to anyone else", func(t *testing.T) {
-		want := "hello kurth4cker"
-		got := Greet("kurth4cker")
-		assertGotWant(t, got, want)
-	})
-
-	t.Run("empty string is not special", func(t *testing.T) {
-		want := "hello "
-		got := Greet("")
-		assertGotWant(t, got, want)
-	})
+	for _, tc := range testCases {
+		got := Greet(tc.given)
+		if got != tc.want {
+			t.Errorf("got %q, want %q, given %q",
+				got, tc.want, tc.given)
+		}
+	}
 }
