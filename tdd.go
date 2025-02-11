@@ -4,7 +4,11 @@
 
 package sample
 
-import "math"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 func Fibonacci(n int) int {
 	if n < 2 {
@@ -46,4 +50,32 @@ type Triangle struct {
 // Return area of given triangle.
 func (t Triangle) Area() float64 {
 	return t.Base * t.Height * 0.5
+}
+
+type Bitcoin int
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
+
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
+type Wallet struct {
+	balance Bitcoin
+}
+
+func (w *Wallet) Balance() Bitcoin {
+	return w.balance
+}
+
+func (w *Wallet) Deposit(amount Bitcoin) {
+	w.balance += amount
+}
+
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return ErrInsufficientFunds
+	}
+	w.balance -= amount
+	return nil
 }
