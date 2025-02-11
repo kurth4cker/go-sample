@@ -4,9 +4,7 @@
 // Sample Go repository for trying out any module related tech
 package sample
 
-import "fmt"
-
 // Return a formatted greeting to given user.
 func Greet(user string) string {
-	return fmt.Sprintf("hello %s", user)
+	return "hello " + user
 }
