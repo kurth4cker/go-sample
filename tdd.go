@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: MPL-2.0
+// SPDX-License-Identifier: MIT
+// SPDX-FileCopyrightText: 2025 Cristopher James
 // SPDX-FileCopyrightText: 2025 kurth4cker <kurth4cker@gmail.com>
 
 package sample
