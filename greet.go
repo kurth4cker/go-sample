@@ -14,16 +14,13 @@ func Greet(user string) string {
 	return "hello " + user
 }
 
-// Fhello formats given user names and prints them to given writer.
-//
-// Formatting is done by [Greet]. Every formatted value is written line by line.
+// Fhello formats given name and prints to to given writer.
+// Formatting is done by [Greet].
 // See [fmt.Fprintln].
-func Fhello(w io.Writer, users ...string) error {
-	for _, user := range users {
-		_, err := fmt.Fprintln(w, Greet(user))
-		if err != nil {
-			return err
-		}
+func Fhelloln(w io.Writer, user string) error {
+	_, err := fmt.Fprint(w, Greet(user))
+	if err != nil {
+		return err
 	}
 	return nil
 }

@@ -27,20 +27,16 @@ func TestGreet(t *testing.T) {
 	}
 }
 
-func TestFhello(t *testing.T) {
+func TestFhelloln(t *testing.T) {
 	users := []string{"world", "kurth4cker", "emacs"}
-	var buffer bytes.Buffer
+	for _, user := range users {
+		var buffer bytes.Buffer
 
-	err := Fhello(&buffer, users...)
-	if err != nil {
-		t.Fatal("writing failed:", err)
+		err := Fhelloln(&buffer, user)
+		assertNotError(t, err)
+
+		got := buffer.String()
+		want := Greet(user)
+		assertStrings(t, got, want)
 	}
-
-	got := buffer.String()
-	want := `hello world
-hello kurth4cker
-hello emacs
-`
-
-	assertStrings(t, got, want)
 }
