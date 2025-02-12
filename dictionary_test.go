@@ -6,7 +6,7 @@ package sample
 
 import "testing"
 
-func TestDictionary_Add(t *testing.T) {
+func TestAdd(t *testing.T) {
 	t.Run("new word", func(t *testing.T) {
 		dictionary := Dictionary{}
 		word := "test"
@@ -27,7 +27,7 @@ func TestDictionary_Add(t *testing.T) {
 	})
 }
 
-func TestDictionary_Delete(t *testing.T) {
+func TestDelete(t *testing.T) {
 	t.Run("existing word", func(t *testing.T) {
 		word := "test"
 		dictionary := Dictionary{word: "this is just a test"}
@@ -47,7 +47,7 @@ func TestDictionary_Delete(t *testing.T) {
 	})
 }
 
-func TestDictionary_Search(t *testing.T) {
+func TestSearch(t *testing.T) {
 	dictionary := Dictionary{"test": "this is just a test"}
 
 	t.Run("known word", func(t *testing.T) {
@@ -64,7 +64,7 @@ func TestDictionary_Search(t *testing.T) {
 	})
 }
 
-func TestDictionary_Update(t *testing.T) {
+func TestUpdate(t *testing.T) {
 	t.Run("existing word", func(t *testing.T) {
 		word := "test"
 		definition := "this is just a test"
