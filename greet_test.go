@@ -3,7 +3,10 @@
 
 package sample
 
-import "testing"
+import (
+	"bytes"
+	"testing"
+)
 
 func TestGreet(t *testing.T) {
 	testCases := []struct {
@@ -22,4 +25,22 @@ func TestGreet(t *testing.T) {
 				got, tc.want, tc.given)
 		}
 	}
+}
+
+func TestFhello(t *testing.T) {
+	users := []string{"world", "kurth4cker", "emacs"}
+	var buffer bytes.Buffer
+
+	err := Fhello(&buffer, users...)
+	if err != nil {
+		t.Fatal("writing failed:", err)
+	}
+
+	got := buffer.String()
+	want := `hello world
+hello kurth4cker
+hello emacs
+`
+
+	assertStrings(t, got, want)
 }
