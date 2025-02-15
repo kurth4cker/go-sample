@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestGreet(t *testing.T) {
+func TestSgreet(t *testing.T) {
 	testCases := []struct {
 		given string
 		want  string
@@ -19,7 +19,7 @@ func TestGreet(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		got := Greet(tc.given)
+		got := Sgreet(tc.given)
 		if got != tc.want {
 			t.Errorf("got %q, want %q, given %q",
 				got, tc.want, tc.given)
@@ -36,7 +36,7 @@ func TestFhelloln(t *testing.T) {
 		assertNotError(t, err)
 
 		got := buffer.String()
-		want := Greet(user)
+		want := Sgreet(user)
 		assertStrings(t, got, want)
 	}
 }
