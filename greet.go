@@ -16,6 +16,9 @@ func Fhello(w io.Writer, user string) {
 	fmt.Fprint(w, Sgreet(user))
 }
 
+// Deprecated: Use [Shello] instead.
+var Greet = Shello
+
 // Return a formatted greeting to given user.
 //
 // Deprecated: Use [Shello] instead.
