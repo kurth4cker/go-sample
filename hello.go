@@ -16,6 +16,12 @@ func Fhello(w io.Writer, user string) {
 	fmt.Fprint(w, Shello(user))
 }
 
+// Fhelloln formats and prints a greeting string to given writer.
+// See [fmt.Fprintln].
+func Fhelloln(w io.Writer, user string) {
+	fmt.Fprintln(w, Shello(user))
+}
+
 // Return a formatted greeting string to given user.
 // User may be any string including empty string.
 func Shello(user string) string {

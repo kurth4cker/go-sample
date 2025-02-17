@@ -23,6 +23,19 @@ func TestFhello(t *testing.T) {
 	}
 }
 
+func TestFhelloln(t *testing.T) {
+	user := "world"
+	buffer := new(bytes.Buffer)
+	Fhelloln(buffer, user)
+
+	got := buffer.String()
+	want := Shello(user) + "\n"
+
+	if got != want {
+		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
 func TestShello(t *testing.T) {
 	testCases := []struct {
 		given string
