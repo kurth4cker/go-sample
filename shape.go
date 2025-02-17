@@ -12,6 +12,7 @@ type Shape interface {
 }
 
 // Circle with only radius.
+// Deprecated: Will be removed
 type Circle struct {
 	Radius float64
 }
@@ -31,6 +32,7 @@ func (r Rectangle) Area() float64 {
 	return r.Height * r.Width
 }
 
+// Deprecated: Will be removed
 type Triangle struct {
 	Base   float64
 	Height float64

@@ -4,18 +4,21 @@
 
 package sample
 
+// Deprecated: Will be removed
 type DictionaryErr string
 
+// Deprecated: Will be removed
 func (e DictionaryErr) Error() string {
 	return string(e)
 }
 
 const (
-	ErrNotFound      = DictionaryErr("could not find the word you were looking for")
-	ErrWordExists    = DictionaryErr("cannot add word because it already exists")
-	ErrWordNotExists = DictionaryErr("cannot update word because it is not exist")
+	ErrNotFound      = DictionaryErr("could not find the word you were looking for") // Deprecated: Will be removed
+	ErrWordExists    = DictionaryErr("cannot add word because it already exists")    // Deprecated: Will be removed
+	ErrWordNotExists = DictionaryErr("cannot update word because it is not exist")   // Deprecated: Will be removed
 )
 
+// Deprecated: Will be removed
 type Dictionary map[string]string
 
 func (d Dictionary) Add(word, definition string) error {

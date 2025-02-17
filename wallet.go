@@ -9,14 +9,16 @@ import (
 	"fmt"
 )
 
+// Deprecated: Will be removed
 type Bitcoin int
 
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
 
-var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds") // Deprecated: Will be removed
 
+// Deprecated: Will be removed
 type Wallet struct {
 	balance Bitcoin
 }
