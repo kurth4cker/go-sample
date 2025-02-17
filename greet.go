@@ -14,13 +14,9 @@ func Sgreet(user string) string {
 	return "hello " + user
 }
 
-// Fhelloln formats given name and prints it to given writer.
+// Fhello formats given name and prints it to given writer.
 // Formatting is done by [Greet].
-// See [fmt.Fprintln].
-func Fhelloln(w io.Writer, user string) error {
-	_, err := fmt.Fprint(w, Sgreet(user))
-	if err != nil {
-		return err
-	}
-	return nil
+// See [fmt.Fprint].
+func Fhello(w io.Writer, user string) {
+	fmt.Fprint(w, Sgreet(user))
 }
