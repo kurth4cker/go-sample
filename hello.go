@@ -16,7 +16,8 @@ func Fhello(w io.Writer, user string) {
 	fmt.Fprint(w, Shello(user))
 }
 
-// Return a formatted greeting to given user.
+// Return a formatted greeting string to given user.
+// User may be any string including empty string.
 func Shello(user string) string {
 	return "hello " + user
 }
