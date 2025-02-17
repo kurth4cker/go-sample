@@ -10,7 +10,7 @@ import (
 )
 
 // Fhello formats given name and prints it to given writer.
-// Formatting is done by [Greet].
+// Formatting is done by [Shello].
 // See [fmt.Fprint].
 func Fhello(w io.Writer, user string) {
 	fmt.Fprint(w, Shello(user))
