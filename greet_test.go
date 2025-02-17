@@ -23,25 +23,6 @@ func TestFhello(t *testing.T) {
 	}
 }
 
-func TestGreet(t *testing.T) {
-	testCases := []struct {
-		given string
-		want  string
-	}{
-		{given: "world", want: "hello world"},
-		{given: "kurth4cker", want: "hello kurth4cker"},
-		{given: "", want: "hello "},
-	}
-
-	for _, tc := range testCases {
-		got := Greet(tc.given)
-		if got != tc.want {
-			t.Errorf("got %q, want %q, given %q",
-				got, tc.want, tc.given)
-		}
-	}
-}
-
 func TestShello(t *testing.T) {
 	testCases := []struct {
 		given string

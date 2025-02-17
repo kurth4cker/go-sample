@@ -17,13 +17,6 @@ func Fhello(w io.Writer, user string) {
 }
 
 // Return a formatted greeting to given user.
-//
-// Deprecated: Use [Shello] instead.
-func Greet(user string) string {
-	return "hello " + user
-}
-
-// Return a formatted greeting to given user.
 func Shello(user string) string {
 	return "hello " + user
 }
