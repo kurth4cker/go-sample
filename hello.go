@@ -7,6 +7,7 @@ package sample
 import (
 	"fmt"
 	"io"
+	"os"
 )
 
 // Fhello formats given name and prints it to given writer.
@@ -20,6 +21,11 @@ func Fhello(w io.Writer, user string) {
 // See [fmt.Fprintln].
 func Fhelloln(w io.Writer, user string) {
 	fmt.Fprintln(w, Shello(user))
+}
+
+// Helloln writes formatted greeting and a newline to [os.Stdout].
+func Helloln(user string) {
+	Fhelloln(os.Stdout, user)
 }
 
 // Return a formatted greeting string to given user.
