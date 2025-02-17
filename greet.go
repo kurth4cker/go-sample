@@ -13,16 +13,13 @@ import (
 // Formatting is done by [Greet].
 // See [fmt.Fprint].
 func Fhello(w io.Writer, user string) {
-	fmt.Fprint(w, Sgreet(user))
+	fmt.Fprint(w, Shello(user))
 }
-
-// Deprecated: Use [Shello] instead.
-var Greet = Shello
 
 // Return a formatted greeting to given user.
 //
 // Deprecated: Use [Shello] instead.
-func Sgreet(user string) string {
+func Greet(user string) string {
 	return "hello " + user
 }
 
