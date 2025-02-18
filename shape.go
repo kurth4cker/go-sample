@@ -12,6 +12,7 @@ type Shape interface {
 }
 
 // Circle with only radius.
+//
 // Deprecated: Will be removed
 type Circle struct {
 	Radius float64
