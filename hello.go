@@ -11,8 +11,8 @@ import (
 )
 
 // Fhello formats given name and prints it to given writer.
-// Formatting is done by [Shello].
-// See [fmt.Fprint].
+//
+// Deprecated: Use [fmt.Fprint] with [Shello] instead.
 func Fhello(w io.Writer, user string) {
 	fmt.Fprint(w, Shello(user))
 }
