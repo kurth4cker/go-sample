@@ -10,13 +10,6 @@ import (
 	"os"
 )
 
-// Fhello formats given name and prints it to given writer.
-//
-// Deprecated: Use [fmt.Fprint] with [Shello] instead.
-func Fhello(w io.Writer, user string) {
-	fmt.Fprint(w, Shello(user))
-}
-
 // Fhelloln formats and prints a greeting string to given writer.
 // See [fmt.Fprintln].
 func Fhelloln(w io.Writer, user string) {

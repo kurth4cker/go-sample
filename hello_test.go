@@ -8,21 +8,6 @@ import (
 	"testing"
 )
 
-func TestFhello(t *testing.T) {
-	users := []string{"world", "kurth4cker", "emacs"}
-	for _, user := range users {
-		buffer := new(bytes.Buffer)
-		Fhello(buffer, user)
-
-		got := buffer.String()
-		want := Shello(user)
-
-		if got != want {
-			t.Errorf("got %q, want %q", got, want)
-		}
-	}
-}
-
 func TestFhelloln(t *testing.T) {
 	user := "world"
 	buffer := new(bytes.Buffer)
