@@ -4,4 +4,6 @@
 package sample
 
 // None type for defining empty types.
+//
+// Deprecated: Use just struct{} instead.
 type None = struct{}
