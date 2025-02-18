@@ -5,10 +5,13 @@
 package sample
 
 // General shape interface.
+//
+// Deprecated: Will be internal.
 type Shape interface {
 	Area() float64
 }
 
+// Deprecated: Will be internal.
 type Rectangle struct {
 	Width  float64
 	Height float64
