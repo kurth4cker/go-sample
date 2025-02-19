@@ -1,11 +1,13 @@
 // SPDX-License-Identifier: MPL-2.0
 // SPDX-FileCopyrightText: 2025 kurth4cker <kurth4cker@gmail.com>
 
+// Package list implements Singly Linked List.
 package list
 
 import "iter"
 
 // Singly Linked List implementation.
+// The zero value for a List is an empty List ready to use.
 type List[T any] struct {
 	head *node[T]
 }
