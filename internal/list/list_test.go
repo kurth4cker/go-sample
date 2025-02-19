@@ -9,13 +9,10 @@ import (
 )
 
 func TestList_All(t *testing.T) {
-	list := List[int]{}
-	list.Push(1)
-	list.Push(2)
-	list.Push(3)
+	want := []int{1, 2, 3}
+	lst := newList(want...)
 
-	got := slices.Collect(list.All())
-	want := []int{3, 2, 1}
+	got := slices.Collect(lst.All())
 
 	if !slices.Equal(got, want) {
 		t.Errorf("got %v, want %v", got, want)
@@ -37,4 +34,13 @@ func TestList_Push(t *testing.T) {
 	if !slices.Equal(got, want) {
 		t.Errorf("got %v, want %v", got, want)
 	}
+}
+
+func newList[T any](elems ...T) List[T] {
+	var lst List[T]
+	for idx := len(elems) - 1; idx >= 0; idx-- {
+		elem := elems[idx]
+		lst.Push(elem)
+	}
+	return lst
 }
