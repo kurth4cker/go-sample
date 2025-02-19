@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MPL-2.0
 // SPDX-FileCopyrightText: 2025 kurth4cker <kurth4cker@gmail.com>
 
-package internal
+package list
 
 import "iter"
 
@@ -32,6 +32,7 @@ func (l *List[T]) Push(v T) {
 	l.head = elem
 }
 
+// Node implements Singly Linked List node.
 type node[T any] struct {
 	next *node[T]
 	val  T
