@@ -10,9 +10,7 @@ type List[T any] struct {
 	head *node[T]
 }
 
-// Returns all elements in reverse push order.
-// For example if you push 1, 2, 3 respectively; when you call [slices.Collect]
-// on All(), you will get [3 2 1].
+// Returns all elements in list.
 func (l *List[T]) All() iter.Seq[T] {
 	return func(yield func(T) bool) {
 		for e := l.head; e != nil; e = e.next {
@@ -24,6 +22,15 @@ func (l *List[T]) All() iter.Seq[T] {
 }
 
 // Push given item to head of [List].
+// When you iterate over list, pushed items will be reverse order.
+// For example:
+//
+//	lst := List[int]{}
+//	lst.Push(1)
+//	lst.Push(2)
+//	lst.Push(3)
+//	elems := slices.Collect(lst.All())
+//	# elems: [3 2 1]
 func (l *List[T]) Push(v T) {
 	elem := &node[T]{
 		next: l.head,
