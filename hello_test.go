@@ -11,15 +11,24 @@ import (
 )
 
 func TestFhelloln(t *testing.T) {
-	user := "world"
-	buffer := new(bytes.Buffer)
-	sample.Fhelloln(buffer, user)
+	cases := []struct {
+		given string
+		want  string
+	}{
+		{given: "world", want: "hello world\n"},
+		{given: "kurth4cker", want: "hello kurth4cker\n"},
+		{given: "", want: "hello \n"},
+	}
 
-	got := buffer.String()
-	want := sample.Shello(user) + "\n"
+	for _, c := range cases {
+		buffer := new(bytes.Buffer)
+		sample.Fhelloln(buffer, c.given)
 
-	if got != want {
-		t.Errorf("got %q, want %q", got, want)
+		got := buffer.String()
+		want := c.want
+		if got != want {
+			t.Errorf("got %q, want %q", got, want)
+		}
 	}
 }
 
