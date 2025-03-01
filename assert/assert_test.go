@@ -9,7 +9,7 @@ import (
 	"codeberg.org/kurth4cker/go-sample/assert"
 )
 
-func TestAssert(t *testing.T) {
+func TestAssertEqual(t *testing.T) {
 	t.Run("Integers", func(t *testing.T) {
 		assert.Equal(t, 1, 1)
 		assert.NotEqual(t, 1, 2)
@@ -19,4 +19,9 @@ func TestAssert(t *testing.T) {
 		assert.Equal(t, "hello", "hello")
 		assert.NotEqual(t, "hello", "bye")
 	})
+}
+
+func TestAssertBool(t *testing.T) {
+	assert.True(t, true)
+	assert.False(t, false)
 }

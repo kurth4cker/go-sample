@@ -18,3 +18,17 @@ func NotEqual[T comparable](t *testing.T, got, want T) {
 		t.Errorf("did not want %+v", got)
 	}
 }
+
+func True(t *testing.T, got bool) {
+	t.Helper()
+	if !got {
+		t.Errorf("got %v, want true", got)
+	}
+}
+
+func False(t *testing.T, got bool) {
+	t.Helper()
+	if got {
+		t.Errorf("got %v, want false", got)
+	}
+}
