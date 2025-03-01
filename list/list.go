@@ -23,6 +23,20 @@ func (l *List[T]) All() iter.Seq[T] {
 	}
 }
 
+// Return and discard head of list.
+//
+// If head exist, return it and true; otherwise return zero value of type T and
+// false.
+func (l *List[T]) Pop() (T, bool) {
+	if l.head == nil {
+		var zero T
+		return zero, false
+	}
+	value := l.head.val
+	l.head = l.head.next
+	return value, true
+}
+
 // Push given item to head of [List].
 // When you iterate over list, pushed items will be reverse order.
 // For example:

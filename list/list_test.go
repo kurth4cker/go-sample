@@ -7,6 +7,7 @@ import (
 	"slices"
 	"testing"
 
+	"codeberg.org/kurth4cker/go-sample/assert"
 	"codeberg.org/kurth4cker/go-sample/list"
 )
 
@@ -33,6 +34,22 @@ func TestList(t *testing.T) {
 		if !slices.Equal(got, want) {
 			t.Errorf("got %v, want %v", got, want)
 		}
+	})
+	t.Run("Pop()", func(t *testing.T) {
+		lst := new(list.List[int])
+		lst.Push(1)
+		lst.Push(2)
+
+		value, ok := lst.Pop()
+		assert.Equal(t, value, 2)
+		assert.True(t, ok)
+
+		value, ok = lst.Pop()
+		assert.Equal(t, value, 1)
+		assert.True(t, ok)
+
+		_, ok = lst.Pop()
+		assert.False(t, ok)
 	})
 }
 
