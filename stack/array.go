@@ -3,15 +3,15 @@
 
 package stack
 
-type Stack[T any] struct {
+type Array[T any] struct {
 	values []T
 }
 
-func (s *Stack[T]) IsEmpty() bool {
+func (s *Array[T]) IsEmpty() bool {
 	return len(s.values) == 0
 }
 
-func (s *Stack[T]) Pop() (T, bool) {
+func (s *Array[T]) Pop() (T, bool) {
 	if s.IsEmpty() {
 		var zero T
 		return zero, false
@@ -23,6 +23,6 @@ func (s *Stack[T]) Pop() (T, bool) {
 	return element, true
 }
 
-func (s *Stack[T]) Push(value T) {
+func (s *Array[T]) Push(value T) {
 	s.values = append(s.values, value)
 }

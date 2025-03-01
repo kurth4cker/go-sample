@@ -10,9 +10,9 @@ import (
 	"codeberg.org/kurth4cker/go-sample/stack"
 )
 
-func TestStack(t *testing.T) {
+func TestArray(t *testing.T) {
 	t.Run("Int", func(t *testing.T) {
-		ints := new(stack.Stack[int])
+		ints := new(stack.Array[int])
 		assert.True(t, ints.IsEmpty())
 
 		ints.Push(123)
@@ -31,7 +31,7 @@ func TestStack(t *testing.T) {
 	})
 
 	t.Run("String", func(t *testing.T) {
-		strings := new(stack.Stack[string])
+		strings := new(stack.Array[string])
 		assert.True(t, strings.IsEmpty())
 
 		strings.Push("hello")
