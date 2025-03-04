@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MPL-2.0
 // SPDX-FileCopyrightText: 2025 kurth4cker <kurth4cker@gmail.com>
 
-package sample_test
+package sort_test
 
 import (
 	"math/rand"
 	"slices"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample"
+	"codeberg.org/kurth4cker/go-sample/sort"
 )
 
 func TestSortedMerge(t *testing.T) {
@@ -24,7 +24,7 @@ func TestSortedMerge(t *testing.T) {
 	for _, c := range cases {
 		want := slices.Concat(c.s1, c.s2)
 		slices.Sort(want)
-		got := sample.SortedMerge(c.s1, c.s2)
+		got := sort.Merge(c.s1, c.s2)
 		if !slices.Equal(got, want) {
 			t.Errorf("got %+v, want %+v", got, want)
 		}
@@ -39,6 +39,6 @@ func BenchmarkSortedMerge1024(b *testing.B) {
 	}
 	b.ResetTimer()
 	for range b.N {
-		sample.SortedMerge(s1, s2)
+		sort.Merge(s1, s2)
 	}
 }

@@ -1,6 +1,6 @@
-package sample
+package sort
 
-func SortedMerge(s1, s2 []int) []int {
+func Merge(s1, s2 []int) []int {
 	slice := make([]int, 0, len(s1)+len(s2))
 
 	var i1, i2 int
