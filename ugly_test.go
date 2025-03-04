@@ -36,7 +36,7 @@ func TestNthUglyNumber(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(fmt.Sprint(c.given), func(t *testing.T) {
-			got := nthUglyNumber(c.given)
+			got := NthUglyNumber(c.given)
 			assert.Equal(t, got, c.want)
 		})
 	}
@@ -47,7 +47,7 @@ func BenchmarkNthUglyNumber(b *testing.B) {
 	for _, c := range cases {
 		b.Run(fmt.Sprint(c), func(b *testing.B) {
 			for range b.N {
-				nthUglyNumber(c)
+				NthUglyNumber(c)
 			}
 		})
 	}

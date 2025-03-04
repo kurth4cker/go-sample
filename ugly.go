@@ -15,7 +15,7 @@ func IsUgly(number int) bool {
 	return number == 1
 }
 
-func nthUglyNumber(n int) int {
+func NthUglyNumber(n int) int {
 	count := 0
 	number := 0
 	for count != n {
