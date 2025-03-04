@@ -4,6 +4,7 @@
 package sort_test
 
 import (
+	"fmt"
 	"math/rand"
 	"slices"
 	"testing"
@@ -31,14 +32,19 @@ func TestSortedMerge(t *testing.T) {
 	}
 }
 
-func BenchmarkSortedMerge1024(b *testing.B) {
-	var s1, s2 []int
-	for range 1024 {
-		s1 = append(s1, rand.Int())
-		s2 = append(s2, rand.Int())
-	}
-	b.ResetTimer()
-	for range b.N {
-		sort.Merge(s1, s2)
+func BenchmarkMerge(b *testing.B) {
+	lengths := []int{10, 20, 100, 200, 1000, 10000}
+	for _, length := range lengths {
+		b.Run(fmt.Sprint(length), func(b *testing.B) {
+			var s1, s2 []int
+			for range length {
+				s1 = append(s1, rand.Int())
+				s2 = append(s2, rand.Int())
+			}
+			b.ResetTimer()
+			for range b.N {
+				sort.Merge(s1, s2)
+			}
+		})
 	}
 }
