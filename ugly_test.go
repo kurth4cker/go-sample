@@ -14,6 +14,8 @@ func TestNthUglyNumber(t *testing.T) {
 	}{
 		{10, 12},
 		{1, 1},
+		{7, 8},
+		{150, 5832},
 	}
 
 	for _, c := range cases {
