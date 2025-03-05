@@ -7,7 +7,7 @@ func removeFactor(number, factor int) int {
 	return number
 }
 
-func IsUgly(number int) bool {
+func isUgly(number int) bool {
 	factors := [...]int{2, 3, 5}
 	for _, factor := range factors {
 		number = removeFactor(number, factor)
@@ -20,7 +20,7 @@ func NthUglyNumber(n int) int {
 	number := 0
 	for count != n {
 		number++
-		if IsUgly(number) {
+		if isUgly(number) {
 			count++
 		}
 	}
