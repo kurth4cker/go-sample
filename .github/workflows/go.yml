@@ -14,53 +14,7 @@ on:
       - v0
 
 jobs:
-
-  go1_23:
-    runs-on: ubuntu-latest
-    container:
-      image: golang:1.23
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
-
-
-  go1_24:
-    runs-on: ubuntu-latest
-    container:
-      image: golang:1.24
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: go test -v ./...
-
-
-  go-latest:
-    runs-on: ubuntu-latest
-    container:
-      image: golang:latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build
-        run: go build -v ./...
-
-      - name: Test
-        run: go test -v ./...
-
-
-  build-matrix:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
