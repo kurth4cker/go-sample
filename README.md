@@ -1,5 +1,7 @@
 # go-sample
 
+[![Go](https://github.com/kurth4cker/go-sample/actions/workflows/go.yml/badge.svg)](https://github.com/kurth4cker/go-sample/actions/workflows/go.yml)
+
 Just an example Go repository.
 
 
