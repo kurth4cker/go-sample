@@ -11,46 +11,46 @@ import (
 	"codeberg.org/kurth4cker/go-sample/list"
 )
 
-func TestList(t *testing.T) {
-	t.Run("All()", func(t *testing.T) {
-		want := []int{1, 2, 3}
-		lst := newList(want...)
+func TestList_All(t *testing.T) {
+	want := []int{1, 2, 3}
+	lst := newList(want...)
 
-		got := slices.Collect(lst.All())
+	got := slices.Collect(lst.All())
 
-		if !slices.Equal(got, want) {
-			t.Errorf("got %v, want %v", got, want)
-		}
-	})
-	t.Run("Push()", func(t *testing.T) {
-		list := list.List[int]{}
-		list.Push(1)
-		list.Push(2)
-		list.Push(3)
+	if !slices.Equal(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
 
-		got := slices.Collect(list.All())
-		want := []int{3, 2, 1}
+func TestList_Push(t *testing.T) {
+	list := list.List[int]{}
+	list.Push(1)
+	list.Push(2)
+	list.Push(3)
 
-		if !slices.Equal(got, want) {
-			t.Errorf("got %v, want %v", got, want)
-		}
-	})
-	t.Run("Pop()", func(t *testing.T) {
-		lst := new(list.List[int])
-		lst.Push(1)
-		lst.Push(2)
+	got := slices.Collect(list.All())
+	want := []int{3, 2, 1}
 
-		value, ok := lst.Pop()
-		assert.Equal(t, value, 2)
-		assert.True(t, ok)
+	if !slices.Equal(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+}
 
-		value, ok = lst.Pop()
-		assert.Equal(t, value, 1)
-		assert.True(t, ok)
+func TestList_Pop(t *testing.T) {
+	lst := new(list.List[int])
+	lst.Push(1)
+	lst.Push(2)
 
-		_, ok = lst.Pop()
-		assert.False(t, ok)
-	})
+	value, ok := lst.Pop()
+	assert.Equal(t, value, 2)
+	assert.True(t, ok)
+
+	value, ok = lst.Pop()
+	assert.Equal(t, value, 1)
+	assert.True(t, ok)
+
+	_, ok = lst.Pop()
+	assert.False(t, ok)
 }
 
 func newList[T any](elems ...T) list.List[T] {
