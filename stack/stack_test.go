@@ -13,21 +13,40 @@ import (
 
 func TestArray(t *testing.T) {
 	ints := new(stack.Array[int])
-	assert.True(t, ints.IsEmpty())
 
 	ints.Push(123)
-	assert.False(t, ints.IsEmpty())
-
 	ints.Push(456)
 	value, _ := ints.Pop()
 	assert.Equal(t, value, 456)
 
 	value, _ = ints.Pop()
 	assert.Equal(t, value, 123)
-	assert.True(t, ints.IsEmpty())
 
 	_, ok := ints.Pop()
 	assert.False(t, ok)
+}
+
+func TestArray_IsEmpty(t *testing.T) {
+	t.Run("Fresh", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		assert.True(t, ints.IsEmpty())
+	})
+
+	t.Run("PurePush", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		for range 8 {
+			ints.Push(0)
+		}
+		assert.False(t, ints.IsEmpty())
+	})
+
+	t.Run("PurePop", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		for range 4 {
+			ints.Pop()
+		}
+		assert.True(t, ints.IsEmpty())
+	})
 }
 
 func TestArray_Len(t *testing.T) {
