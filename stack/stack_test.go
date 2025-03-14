@@ -31,6 +31,11 @@ func TestArray(t *testing.T) {
 }
 
 func TestArray_Len(t *testing.T) {
+	t.Run("Empty", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		assert.Equal(t, ints.Len(), 0)
+	})
+
 	t.Run("Pushes", func(t *testing.T) {
 		cases := []int{0, 3, 5, 10}
 
