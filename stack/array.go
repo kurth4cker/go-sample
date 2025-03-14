@@ -11,6 +11,10 @@ func (s *Array[T]) IsEmpty() bool {
 	return len(s.values) == 0
 }
 
+func (s *Array[T]) Len() int {
+	return len(s.values)
+}
+
 func (s *Array[T]) Pop() (T, bool) {
 	if s.IsEmpty() {
 		var zero T
