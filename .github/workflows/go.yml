@@ -47,7 +47,7 @@ jobs:
 
   benchmark:
     runs-on: ubuntu-latest
-    needs: build
+    needs: race
 
     steps:
       - uses: actions/checkout@v4
