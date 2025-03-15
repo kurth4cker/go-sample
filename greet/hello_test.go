@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MPL-2.0
 // SPDX-FileCopyrightText: 2025 kurth4cker <kurth4cker@gmail.com>
 
-package sample_test
+package greet_test
 
 import (
 	"bytes"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample"
+	"codeberg.org/kurth4cker/go-sample/greet"
 )
 
 func TestFhelloln(t *testing.T) {
@@ -22,7 +22,7 @@ func TestFhelloln(t *testing.T) {
 
 	for _, c := range cases {
 		buffer := new(bytes.Buffer)
-		sample.Fhelloln(buffer, c.given)
+		greet.Fhelloln(buffer, c.given)
 
 		got := buffer.String()
 		want := c.want
@@ -43,7 +43,7 @@ func TestShello(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		got := sample.Shello(tc.given)
+		got := greet.Shello(tc.given)
 		if got != tc.want {
 			t.Errorf("got %q, want %q, given %q",
 				got, tc.want, tc.given)
