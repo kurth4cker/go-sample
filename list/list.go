@@ -9,7 +9,7 @@ import "iter"
 // Singly Linked List implementation.
 // The zero value for a List is an empty List ready to use.
 type List[T any] struct {
-	head *Node[T]
+	head *node[T]
 }
 
 // Returns all elements in list.
@@ -39,7 +39,7 @@ func (l *List[T]) Pop() (T, bool) {
 
 // Push given item to head of [List].
 func (l *List[T]) Push(v T) {
-	elem := &Node[T]{
+	elem := &node[T]{
 		next: l.head,
 		val:  v,
 	}
@@ -47,7 +47,7 @@ func (l *List[T]) Push(v T) {
 }
 
 // Node implements Singly Linked List Node.
-type Node[T any] struct {
-	next *Node[T]
+type node[T any] struct {
+	next *node[T]
 	val  T
 }
