@@ -91,10 +91,33 @@ func TestArray_Len(t *testing.T) {
 
 func TestArray_Push(t *testing.T) {
 	ints := new(stack.Array[int])
-	interface_Push(t, ints, 1, 2, 3, 4)
+	interface_PushOrder(t, ints, 1, 2, 3, 4)
 }
 
-func interface_Push[T comparable](t testing.TB, st stack.Interface[T], values ...T) {
+func TestArray_Pop(t *testing.T) {
+	t.Run("correct order", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		interface_PopOrder(t, ints, 1, 2, 3, 4)
+	})
+
+	t.Run("pop from empty array", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		interface_PopEmpty(t, ints)
+	})
+}
+
+func interface_PopEmpty[T any](t testing.TB, st stack.Interface[T]) {
+	_, ok := st.Pop()
+	if ok {
+		t.Error("got true but want false")
+	}
+}
+
+func interface_PopOrder[T comparable](t testing.TB, st stack.Interface[T], values ...T) {
+	interface_PushOrder(t, st, values...)
+}
+
+func interface_PushOrder[T comparable](t testing.TB, st stack.Interface[T], values ...T) {
 	for _, value := range values {
 		st.Push(value)
 	}
