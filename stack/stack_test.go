@@ -104,12 +104,27 @@ func TestArray_Pop(t *testing.T) {
 		ints := new(stack.Array[int])
 		interface_PopEmpty(t, ints)
 	})
+
+	t.Run("pop from non empty array", func(t *testing.T) {
+		ints := new(stack.Array[int])
+		for range 3 {
+			ints.Push(0)
+		}
+		interface_PopNonEmpty(t, ints)
+	})
 }
 
 func interface_PopEmpty[T any](t testing.TB, st stack.Interface[T]) {
 	_, ok := st.Pop()
 	if ok {
 		t.Error("got true but want false")
+	}
+}
+
+func interface_PopNonEmpty[T any](t testing.TB, st stack.Interface[T]) {
+	_, ok := st.Pop()
+	if !ok {
+		t.Error("got false but want true")
 	}
 }
 
