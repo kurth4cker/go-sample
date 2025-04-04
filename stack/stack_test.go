@@ -5,26 +5,12 @@ package stack_test
 
 import (
 	"fmt"
+	"slices"
 	"testing"
 
 	"codeberg.org/kurth4cker/go-sample/assert"
 	"codeberg.org/kurth4cker/go-sample/stack"
 )
-
-func TestArray(t *testing.T) {
-	ints := new(stack.Array[int])
-
-	ints.Push(123)
-	ints.Push(456)
-	value, _ := ints.Pop()
-	assert.Equal(t, value, 456)
-
-	value, _ = ints.Pop()
-	assert.Equal(t, value, 123)
-
-	_, ok := ints.Pop()
-	assert.False(t, ok)
-}
 
 func TestArray_IsEmpty(t *testing.T) {
 	t.Run("Fresh", func(t *testing.T) {
@@ -101,4 +87,30 @@ func TestArray_Len(t *testing.T) {
 			})
 		}
 	})
+}
+
+func TestArray_Push(t *testing.T) {
+	ints := new(stack.Array[int])
+	interface_Push(t, ints, 1, 2, 3, 4)
+}
+
+func interface_Push[T comparable](t testing.TB, st stack.Interface[T], values ...T) {
+	for _, value := range values {
+		st.Push(value)
+	}
+
+	got := make([]T, 0, len(values))
+	for {
+		value, ok := st.Pop()
+		if !ok {
+			break
+		}
+		got = append(got, value)
+	}
+	want := slices.Clone(values)
+	slices.Reverse(want)
+
+	if !slices.Equal(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
 }
