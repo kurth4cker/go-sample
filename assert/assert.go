@@ -5,28 +5,28 @@ package assert
 
 import "testing"
 
-func Equal[T comparable](t *testing.T, got, want T) {
+func Equal[T comparable](t testing.TB, got, want T) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %+v, want %+v", got, want)
 	}
 }
 
-func NotEqual[T comparable](t *testing.T, got, want T) {
+func NotEqual[T comparable](t testing.TB, got, want T) {
 	t.Helper()
 	if got == want {
 		t.Errorf("did not want %+v", got)
 	}
 }
 
-func True(t *testing.T, got bool) {
+func True(t testing.TB, got bool) {
 	t.Helper()
 	if !got {
 		t.Errorf("got %v, want true", got)
 	}
 }
 
-func False(t *testing.T, got bool) {
+func False(t testing.TB, got bool) {
 	t.Helper()
 	if got {
 		t.Errorf("got %v, want false", got)
