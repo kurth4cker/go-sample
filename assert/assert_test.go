@@ -21,6 +21,14 @@ func TestAssertEqual(t *testing.T) {
 	})
 }
 
+func TestAssertEqualFunc(t *testing.T) {
+	eqTrueFunc := func(_, _ any) bool {
+		return true
+	}
+
+	assert.EqualFunc(t, nil, nil, eqTrueFunc)
+}
+
 func TestAssertBool(t *testing.T) {
 	assert.True(t, true)
 	assert.False(t, false)

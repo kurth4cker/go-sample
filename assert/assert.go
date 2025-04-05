@@ -12,6 +12,13 @@ func Equal[T comparable](t testing.TB, got, want T) {
 	}
 }
 
+func EqualFunc[T any](t testing.TB, got, want T, eq func(T, T) bool) {
+	t.Helper()
+	if !eq(got, want) {
+		t.Errorf("got %+v, want %+v", got, want)
+	}
+}
+
 func NotEqual[T comparable](t testing.TB, got, want T) {
 	t.Helper()
 	if got == want {
