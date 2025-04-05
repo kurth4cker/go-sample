@@ -12,12 +12,10 @@ import (
 func TestAssertEqual(t *testing.T) {
 	t.Run("Integers", func(t *testing.T) {
 		assert.Equal(t, 1, 1)
-		assert.NotEqual(t, 1, 2)
 	})
 
 	t.Run("Strings", func(t *testing.T) {
 		assert.Equal(t, "hello", "hello")
-		assert.NotEqual(t, "hello", "bye")
 	})
 }
 
