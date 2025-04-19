@@ -27,7 +27,10 @@ func TestAssertEqualFunc(t *testing.T) {
 	assert.EqualFunc(t, nil, nil, eqTrueFunc)
 }
 
-func TestAssertBool(t *testing.T) {
-	assert.True(t, true)
+func TestTrue(t *testing.T) {
+	assert.True(t, true);
+}
+
+func TestFalse(t *testing.T) {
 	assert.False(t, false)
 }
