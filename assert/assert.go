@@ -5,13 +5,17 @@ package assert
 
 import "testing"
 
-func Equal[T comparable](t testing.TB, got, want T) {
+// Assert equality with == operator
+//
+// If they are not equal call tb.Errorf.
+func Equal[T comparable](tb testing.TB, got, want T) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %+v, want %+v", got, want)
 	}
 }
 
+// Same as [Equal] but test with given function.
 func EqualFunc[T any](t testing.TB, got, want T, eq func(T, T) bool) {
 	t.Helper()
 	if !eq(got, want) {
@@ -19,6 +23,7 @@ func EqualFunc[T any](t testing.TB, got, want T, eq func(T, T) bool) {
 	}
 }
 
+// If given value is not true, fail.
 func True(t testing.TB, got bool) {
 	t.Helper()
 	if !got {
@@ -26,6 +31,7 @@ func True(t testing.TB, got bool) {
 	}
 }
 
+// Fail if value is false.
 func False(t testing.TB, got bool) {
 	t.Helper()
 	if got {
