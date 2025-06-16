@@ -1,3 +1,3 @@
-module codeberg.org/kurth4cker/go-sample
+module github.com/kurth4cker/go-sample
 
 go 1.23.6
