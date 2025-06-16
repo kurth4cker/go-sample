@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"slices"
 
-	"codeberg.org/kurth4cker/go-sample/list"
+	"github.com/kurth4cker/go-sample/list"
 )
 
 func Example() {

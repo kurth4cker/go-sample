@@ -7,7 +7,7 @@ import (
 	stdslices "slices"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample/slices"
+	"github.com/kurth4cker/go-sample/slices"
 )
 
 func TestRemove(t *testing.T) {

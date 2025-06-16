@@ -8,8 +8,8 @@ import (
 	"slices"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample/assert"
-	"codeberg.org/kurth4cker/go-sample/stack"
+	"github.com/kurth4cker/go-sample/assert"
+	"github.com/kurth4cker/go-sample/stack"
 )
 
 func TestArray_IsEmpty(t *testing.T) {

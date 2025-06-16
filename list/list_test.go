@@ -7,8 +7,8 @@ import (
 	"slices"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample/assert"
-	"codeberg.org/kurth4cker/go-sample/list"
+	"github.com/kurth4cker/go-sample/assert"
+	"github.com/kurth4cker/go-sample/list"
 )
 
 func TestList_All(t *testing.T) {

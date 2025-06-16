@@ -7,7 +7,7 @@ import (
 	"bytes"
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample/greet"
+	"github.com/kurth4cker/go-sample/greet"
 )
 
 func TestFhelloln(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"codeberg.org/kurth4cker/go-sample/greet"
+	"github.com/kurth4cker/go-sample/greet"
 )
 
 func ExampleFhelloln() {

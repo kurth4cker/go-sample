@@ -6,7 +6,7 @@ package assert_test
 import (
 	"testing"
 
-	"codeberg.org/kurth4cker/go-sample/assert"
+	"github.com/kurth4cker/go-sample/assert"
 )
 
 func TestEqual(t *testing.T) {
